@@ -1,0 +1,16 @@
+{
+    "paths": {
+        "src": "./src",
+        "components": "Components",
+        "utils": "Utils"
+    },
+    "extensions": {
+        "jsx": "jsx",
+        "styles": "scss",
+        "utils": "js"
+    },
+    "defaults": {
+        "createTestFile": true,
+        "createStylesheet": true
+    }
+}
