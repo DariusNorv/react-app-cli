@@ -1,8 +1,8 @@
 {
     "paths": {
         "src": "./src",
-        "components": "Components",
-        "utils": "Utils"
+        "components": "components",
+        "utils": "utils"
     },
     "extensions": {
         "jsx": "jsx",
