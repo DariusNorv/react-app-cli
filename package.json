@@ -8,8 +8,9 @@
   },
   "scripts": {
     "start": "node app",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test:component:create": "react-app-cli component My"
+    "test": "npm run test:component:create && npm run test:util:create",
+    "test:component:create": "react-app-cli component MyComponent",
+    "test:util:create": "react-app-cli util myUtil"
   },
   "keywords": [
     "react",
