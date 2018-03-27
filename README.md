@@ -24,7 +24,7 @@ import myUtil from 'Utils/myUtil';
 ```
 
 ## Instalation
-`npm install -g react-app-cli`
+`npm install -g react-app-components-cli`
 
 ## Usage
 ```bash
