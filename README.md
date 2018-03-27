@@ -1,4 +1,4 @@
-# react-app-cli
+# react-app-cli [![Build Status](https://travis-ci.org/DariusNorv/react-app-cli.svg?branch=master)](https://travis-ci.org/DariusNorv/react-app-cli)
 Simple create and scraffolding React components and utilities.
 This cli was created after reading [this post](https://hackernoon.com/the-100-correct-way-to-structure-a-react-app-or-why-theres-no-such-thing-3ede534ef1ed)
 So many thanks for idea to [David Gilbertson](https://hackernoon.com/@david.gilbertson?source=post_header_lockup)
