@@ -9,8 +9,8 @@
   "scripts": {
     "start": "node app",
     "test": "npm run test:component:create && npm run test:util:create",
-    "test:component:create": "react-app-cli component MyComponent",
-    "test:util:create": "react-app-cli util myUtil"
+    "test:component:create": "node app component MyComponent",
+    "test:util:create": "node app util myUtil"
   },
   "keywords": [
     "react",
