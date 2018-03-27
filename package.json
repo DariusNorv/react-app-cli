@@ -1,0 +1,23 @@
+{
+  "name": "react-app-cli",
+  "version": "1.0.0",
+  "description": "Create React components/utils etc. scraffolder",
+  "main": "app/index.js",
+  "bin": {
+    "react-app-cli": "./app/index.js"
+  },
+  "scripts": {
+    "start": "node app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "cli",
+    "react-dom"
+  ],
+  "author": "Kostya V. <djnafany@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.15.1"
+  }
+}
