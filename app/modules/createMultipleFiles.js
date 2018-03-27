@@ -21,10 +21,12 @@ function createFiles(path, name, type) {
         content: TPL.root(name)
       }
     ],
-    util: {
-      name: `${path}/${name}.js`,
-      content: TPL.util(name)
-    }
+    util: [
+      {
+        name: `${path}/${name}.js`,
+        content: TPL.util(name)
+      }
+    ]
   };
 
   return Promise.all(files[type].map(createSingleFile));

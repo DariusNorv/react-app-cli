@@ -1,9 +1,7 @@
 const fs = require('fs-extra');
-const { paths } = require('../config.json');
 
 async function createPath(pathName) {
-  const { src, components } = paths;
-  const pathname = `${src}/${components}/${pathName}`;
+  const pathname = `${pathName}`;
   try {
     await fs.ensureDir(pathname);
     return Promise.resolve(pathname);

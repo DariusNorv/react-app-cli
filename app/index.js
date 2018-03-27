@@ -4,7 +4,8 @@
 const { version } = require(`${__dirname}/../package.json`);
 const app = require('commander');
 
-const createReactComponent = require('./modules/createComponent');
+const createComponent = require('./modules/createComponent');
+const createUtil = require('./modules/createUtil');
 
 app
   .version(version)
@@ -12,11 +13,11 @@ app
 app
   .command('component <name>')
   .description('Create React component')
-  .action(createReactComponent);
+  .action(createComponent);
 
 app
   .command('util <name>')
   .description('Create util helper')
-  .action(createReactComponent);
+  .action(createUtil);
 
 app.parse(process.argv);
