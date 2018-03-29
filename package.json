@@ -4,7 +4,8 @@
   "description": "Create React components/utils etc. scraffolder",
   "main": "app/index.js",
   "bin": {
-    "react-app-cli": "./app/index.js"
+    "react-app-cli": "./app/index.js",
+    "rcc": "./app/index.js"
   },
   "scripts": {
     "start": "node app",
@@ -21,7 +22,9 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^2.15.1",
-    "fs-extra": "^5.0.0"
+    "fs-extra": "^5.0.0",
+    "inquirer": "^5.2.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {},
   "repository": {

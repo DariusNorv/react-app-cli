@@ -1,33 +1,45 @@
+const { resolve } = require('path');
+
 const createSingleFile = require('./createSingleFile');
 const TPL = require('./templatesConfig');
+const config = require('./resolveConfig').resolveConfigFile();
 
 function createFiles(path, name, type) {
   const files = {
     component: [
       {
-        name: `${path}/${name}.jsx`,
+        name: `${path}/${name}.${config.extensions.jsx}`,
         content: TPL.jsx(name)
-      },
-      {
-        name: `${path}/${name}.scss`,
-        content: TPL.scss(name)
-      },
-      {
-        name: `${path}/${name}.spec.js`,
-        content: TPL.spec(name)
-      },
-      {
-        name: `${path}/package.json`,
-        content: TPL.root(name)
       }
     ],
     util: [
       {
-        name: `${path}/${name}.js`,
-        content: TPL.util(name)
+        name: `${path}/${name}.${config.extensions.utils}`,
+        content: TPL.utils(name)
       }
     ]
   };
+
+  if (config.options.createTestFile) {
+    files.component.push({
+      name: `${path}/${name}.${config.extensions.tests}`,
+      content: TPL.tests(name)
+    });
+  }
+
+  if (config.options.createStylesheet) {
+    files.component.push({
+      name: `${path}/${name}.${config.extensions.styles}`,
+      content: TPL.styles(name)
+    });
+  }
+
+  if (config.options.createComponentsRoot) {
+    files.component.push({
+      name: `${path}/package.json`,
+      content: TPL.root(name)
+    });
+  }
 
   return Promise.all(files[type].map(createSingleFile));
 }

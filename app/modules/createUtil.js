@@ -1,21 +1,25 @@
+const { resolve } = require('path');
+
 const createPath = require('./createPath');
 const createFiles = require('./createMultipleFiles');
 const updateUtilIndex = require('./updateUtilIndex');
 
-const { paths } = require('../config.json');
+const { paths } = require('./resolveConfig').resolveConfigFile();
 
 function createUtil(name) {
   const { src, utils } = paths;
+  let indexUpdatetSuccessMessage;
   return createPath(`${src}/${utils}/${name}/`)
-    .then(path => 
-      updateUtilIndex(path, name)
-        .then(({path, message}) => {
-          console.log(message);
+    .then(path =>
+      updateUtilIndex(`${src}/${utils}/`, name)
+        .then(message => {
+          indexUpdatetSuccessMessage = message;
           return path;
         })
     )
     .then(path => createFiles(path, name, 'util'))
     .then(res => console.log(`Created files: \n${res.join('\n')}`))
+    .then(() => console.log(indexUpdatetSuccessMessage))
     .catch(console.warn)
 }
 

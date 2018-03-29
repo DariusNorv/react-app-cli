@@ -4,8 +4,9 @@
 const { version } = require(`${__dirname}/../package.json`);
 const app = require('commander');
 
-const createComponent = require('./modules/createComponent');
-const createUtil = require('./modules/createUtil');
+const createComponent = () => require('./modules/createComponent');
+const createUtil = () => require('./modules/createUtil');
+const makeConfig = () => require('./createConfig');
 
 app
   .version(version)
@@ -13,11 +14,16 @@ app
 app
   .command('component <name>')
   .description('Create React component')
-  .action(createComponent);
+  .action(createComponent());
 
 app
   .command('util <name>')
   .description('Create util helper')
-  .action(createUtil);
+  .action(createUtil());
+
+app
+  .command('config')
+  .description('Create a default configuration')
+  .action(makeConfig);
 
 app.parse(process.argv);
