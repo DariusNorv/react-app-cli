@@ -1,8 +1,6 @@
-const { resolve } = require('path');
-
 const createSingleFile = require('./createSingleFile');
 const TPL = require('./templatesConfig');
-const config = require('./resolveConfig').resolveConfigFile();
+const config = require(`${process.cwd()}/.rcc-config.json`);
 
 function createFiles(path, name, type) {
   const files = {

@@ -1,5 +1,4 @@
-const { resolve } = require('path');
-const config = require('./resolveConfig').resolveConfigFile();
+const config = require(`${process.cwd()}/.rcc-config.json`);
 
 const jsx = name => (
   `import React from 'react';${config.options.createStylesheet ? `\nimport './${name}.${config.extensions.styles}';` : ''}

@@ -1,10 +1,8 @@
-const { resolve } = require('path');
-
 const createPath = require('./createPath');
 const createFiles = require('./createMultipleFiles');
 const updateUtilIndex = require('./updateUtilIndex');
 
-const { paths } = require('./resolveConfig').resolveConfigFile();
+const { paths } = require(`${process.cwd()}/.rcc-config.json`);
 
 function createUtil(name) {
   const { src, utils } = paths;

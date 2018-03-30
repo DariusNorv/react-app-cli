@@ -1,8 +1,7 @@
 const createPath = require('./createPath');
 const createFiles = require('./createMultipleFiles');
-const { resolve } = require('path');
 
-const { paths } = require('./resolveConfig').resolveConfigFile();
+const { paths } = require(`${process.cwd()}/.rcc-config.json`);
 
 function createComponent(name) {
   const { src, components } = paths;
