@@ -1,9 +1,9 @@
-const fs = require('fs-extra');
+const { ensureDir } = require('fs-extra');
 
 async function createPath(pathName) {
   const pathname = `${pathName}`;
   try {
-    await fs.ensureDir(pathname);
+    await ensureDir(pathname);
     return Promise.resolve(pathname);
   } catch (err) {
     return Promise.reject(err);

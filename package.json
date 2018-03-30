@@ -4,13 +4,15 @@
   "description": "Create React components/utils etc. scraffolder",
   "main": "app/index.js",
   "bin": {
-    "react-app-cli": "./app/index.js"
+    "react-app-cli": "./app/index.js",
+    "rcc": "./app/index.js"
   },
   "scripts": {
     "start": "node app",
-    "test": "npm run test:component:create && npm run test:util:create",
+    "test": "npm run copy:config && npm run test:component:create && npm run test:util:create",
     "test:component:create": "node app component MyComponent",
-    "test:util:create": "node app util myUtil"
+    "test:util:create": "node app util myUtil",
+    "copy:config": "cp ./app/templates/.default-config.json ./.rcc-config.json"
   },
   "keywords": [
     "react",
@@ -21,7 +23,9 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^2.15.1",
-    "fs-extra": "^5.0.0"
+    "fs-extra": "^5.0.0",
+    "inquirer": "^5.2.0",
+    "lodash": "^4.17.5"
   },
   "devDependencies": {},
   "repository": {

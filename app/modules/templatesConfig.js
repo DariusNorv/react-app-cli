@@ -1,24 +1,20 @@
-const jsxTemplate = name => (
-  `import React from 'react';
-import './${name}.scss';
+const config = require(`${process.cwd()}/.rcc-config.json`);
 
-const ${name} = (props) => {
+const jsx = name => (
+  `import React from 'react';${config.options.createStylesheet ? `\nimport './${name}.${config.extensions.styles}';` : ''}
+
+const ${name} = () => {
   return (
-    <div>
-      {props.children}
-    </div>
+    <div />
   )
 };
 
 export default ${name};`
 );
 
-const cssTemplate = (name) => (
-  `.${name} {
-}`
-);
+const styles = (name) => '';
 
-const specTemplate = name => (
+const tests = name => (
   `import React from 'react';
 import ReactDOM from 'react-dom';
 import ${name} from 'Components/${name}';
@@ -30,7 +26,7 @@ it('#${name}', () => {
 });`
 );
 
-const utilTemplate = name => (
+const utils = name => (
   `function ${name} () {
 /* do something cool */
 };
@@ -38,16 +34,16 @@ const utilTemplate = name => (
 export default ${name};`
 );
 
-const packageTemplate = name => (
+const packageTemplate = (name, extension) => (
   `{
-    "main": "${name}.jsx"
+  "main": "${name}.${extension}"
 }`
 );
 
 module.exports = {
-  jsx: jsxTemplate,
-  scss: cssTemplate,
-  spec: specTemplate,
-  util: utilTemplate,
+  jsx,
+  styles,
+  tests,
+  utils,
   root: packageTemplate
 };
