@@ -34,9 +34,9 @@ const utils = name => (
 export default ${name};`
 );
 
-const packageTemplate = name => (
+const packageTemplate = (name, extension) => (
   `{
-  "main": "${name}.jsx"
+  "main": "${name}.${extension}"
 }`
 );
 

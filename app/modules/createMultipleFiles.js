@@ -35,7 +35,7 @@ function createFiles(path, name, type) {
   if (config.options.createComponentsRoot) {
     files.component.push({
       name: `${path}/package.json`,
-      content: TPL.root(name)
+      content: TPL.root(name, config.extensions.jsx)
     });
   }
 

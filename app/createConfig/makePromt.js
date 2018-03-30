@@ -93,7 +93,7 @@ const questions = [
     name: 'extensions.tests',
     message: 'Specify the extensions for Unit tests',
     default: defaults.extensions.tests,
-    choices: ['spec.js', 'test.js'],
+    choices: ['spec.js', 'test.js', 'spec.ts', 'test.ts'],
     when: (answers) => isNotDefault(answers) && answers.options.createTestFile
   }
 ]
